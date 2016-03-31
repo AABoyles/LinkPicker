@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<title>LinkPicker</title>
+</head>
+<body>
+<textarea id="html"></textarea>
+<div id="links"></div>
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script>
+$(function(){
+  $("#html").change(function(e){
+    alienDOM = $.parseHTML($(this).val());
+    $(alienDOM).find("a").each(function(i, link){
+      $("#links").append("<p>"+$(link).attr("href")+"</p>");
+    });
+  });
+});
+</script>
+</body>
+</html>
